@@ -1,15 +1,46 @@
----
-layout: default
----
+--- layout: default ---
+
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+        <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+        </p>
+    </header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+    <div class="post-content" itemprop="articleBody">
+        {% for post in site.data.posts.results %}
+        <img src="{{post.img_link}}" alt="">
+        <h1>{{post.title}}</h1>
+        <p>{{post.city}}, {{post.state}}</p>
+        <p>{{post.category}}</p>
+        {% endfor %}
+    </div>
+
+    <p>Get these items through the LocalGiving App.</p>
 
 </article>
+
+
+
+<!--
+
+{% for post in site.data.posts.results %}
+<div class="row">
+    <div class="col s12 m7">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{post.img_link}}">
+                <span class="card-title">{{post.title}} {{post.city}}, {{post.state}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{post.category}}</p>
+            </div>
+            <div class="card-action">
+                <a href="#">{{post.category}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}-->

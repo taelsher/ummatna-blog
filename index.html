@@ -2,10 +2,11 @@
 layout: default
 ---
 
-<div class="home">
+<div class="row">
+      <h1 class="items-hdr">Free Colorado Items</h1>
+</div>
 
-  <h1 class="page-heading">Posts</h1>
-
+<!--
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
@@ -17,7 +18,30 @@ layout: default
       </li>
     {% endfor %}
   </ul>
+-->
+<div class="row">
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  {% for post in site.data.posts.results %}
+     <div class="col s12 m4">
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{post.img_link}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{post.title}}<i class="material-icons right">more_vert</i></span>
+      <p>{{post.city}}, {{post.state}}</p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{post.title}}<i class="material-icons right">close</i></span>
+      <div class="divider"></div>
+      <br>
+      <p>Category: {{post.category}}</p>
+      <p>Description: </p>
+      <p>{{post.description}}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
 
 </div>
+

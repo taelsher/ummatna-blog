@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Colorado Items!"
 date:   2016-03-13 12:51:03 -0600
 categories: jekyll update
 ---

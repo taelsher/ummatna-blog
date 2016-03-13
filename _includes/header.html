@@ -1,5 +1,6 @@
-<header class="site-header">
+<header>
 
+    <!--
   <div class="wrapper">
 
     <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
@@ -23,5 +24,25 @@
     </nav>
 
   </div>
+-->
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="{{ site.baseurl }}/" class="brand-logo" style="padding-left: 30px; text-decoration:none;">{{ site.title }}</a>
+            <a href="{{ site.baseurl }}/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                {% for my_page in site.pages %} {% if my_page.title %}
+                <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+                </li>
+                {% endif %} {% endfor %}
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                {% for my_page in site.pages %} {% if my_page.title %}
+                <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+                </li>
+                {% endif %} {% endfor %} 
+            </ul>
+        </div>
+    </nav>
 
 </header>
