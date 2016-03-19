@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="row">
-      <h1 class="items-hdr">Free Colorado Items</h1>
+      <h2 class="items-hdr">Free Colorado Items</h2>
 </div>
 
 <!--
@@ -22,7 +22,7 @@ layout: default
 <div class="row">
 
   {% for post in site.data.posts.results %}
-     <div class="col s12 m4">
+     <div class="col s6 m3">
   <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="{{post.img_link}}">
@@ -36,10 +36,19 @@ layout: default
       <div class="divider"></div>
       <br>
       <p>Category: {{post.category}}</p>
-      <p>Description: </p>
-      <p>{{post.description}}</p>
+      {% if post.description.blank? %}
+          <p>Description: </p>
+          <p>{{post.description}}</p>
+      {% endif %}
     
-        <p>Download the App to get this item <span class="primary-color">iOS</span> or <a style="color:#17A697 !important; text-decoration: none !important;" target="_blank" href="https://play.google.com/store/apps/details?id=com.rfbyte.localgiving">Android</a></p>
+        <span class="card-title grey-text text-darken-4" style="text-align:center;">Get Item</span>
+      <div class="divider"></div>
+       <br>
+        <a class="waves-effect waves-light btn" target="_blank" href="https://play.google.com/store/apps/details?id=com.rfbyte.localgiving" style="text-decoration: none !important;">Android App</a>
+        <br>
+        <br>
+        <a class="waves-effect waves-light btn" target="_blank" href="http://www.ummatna.com/#!localgiving/qh5j1" style="text-decoration: none !important;">IOS Beta</a>
+
         
     </div>
   </div>
